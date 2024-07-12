@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Cloak - Harry Potter Theme</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>THE INVISIBILITY CLOAK</h1>
+        <p>Welcome to the magical world of Harry Potter. Experience the enchantment of the invisibility cloak, a magical garment that renders the wearer invisible. Just like in the world of Hogwarts, you can now blend into your surroundings and become unseen. Embrace the magic!</p>
+        <div id="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+    </div>
+    <audio autoplay loop>
+        <source src="../static/music/harry_potter_theme.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('bg-music');
+            // Try to play the audio automatically
+            audio.play().catch(function() {
+                // If autoplay is blocked, wait for user interaction
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+    </script>
+</body>
+</html>
